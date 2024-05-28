@@ -1,0 +1,28 @@
+ul {
+    list-style: none;
+}
+
+  
+  .secondary-navbar {
+    background-color: #343a40; // Dark color
+    height: 80px; // Adjust height as needed
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+    .container-fluid {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .nav-item {
+      .nav-link {
+        color: #fff; // Light color for text
+        margin: 0 15px; // Adjust spacing between links as needed
+        &:hover {
+          color: #ccc; // Hover color
+        }
+      }
+    }
+  }
+  
