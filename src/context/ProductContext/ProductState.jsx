@@ -1,7 +1,7 @@
 import { createContext, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import AppReducer from './AppReducer';
+import ProductReducer from './ProductReducer';
 
 const API_URL = 'http://localhost:3001/products';
 
@@ -9,10 +9,10 @@ const initialState = {
   products: [],
 };
 
-export const GlobalContext = createContext(initialState);
+export const ProductContext = createContext(initialState);
 
-export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+export const ProductProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(ProductReducer, initialState);
 
   const getProducts = async () => {
     try {
@@ -52,7 +52,7 @@ export const GlobalProvider = ({ children }) => {
   };
 
   return (
-    <GlobalContext.Provider
+    <ProductContext.Provider
       value={{
         products: state.products,
         getProducts,
@@ -61,11 +61,11 @@ export const GlobalProvider = ({ children }) => {
       }}
     >
       {children}
-    </GlobalContext.Provider>
+    </ProductContext.Provider>
   );
 };
 
-GlobalProvider.propTypes = {
+ProductProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
