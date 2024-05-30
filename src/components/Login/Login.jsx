@@ -17,6 +17,9 @@ const Login = () => {
       message: 'Hola'
     });
   };
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 
   return (
     <div className="login-container">
@@ -27,6 +30,7 @@ const Login = () => {
           remember: true,
         }}
         onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
         autoComplete="on"
       >
         <Form.Item
