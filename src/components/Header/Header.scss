@@ -1,28 +1,40 @@
-ul {
-    list-style: none;
-}
 
-  
-  .secondary-navbar {
-    background-color: #343a40; // Dark color
-    height: 80px; // Adjust height as needed
-    width: 100%;
+.navbar2 {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .container {
     display: flex;
-    align-items: center;
-  
-    .container-fluid {
+    justify-content: center;
+  }
+
+  #navbarNav {
+    ul {
+      list-style-type: none;
       display: flex;
       justify-content: center;
-    }
-  
-    .nav-item {
-      .nav-link {
-        color: #fff; // Light color for text
-        margin: 0 15px; // Adjust spacing between links as needed
-        &:hover {
-          color: #ccc; // Hover color
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+      margin-top: 50px; 
+
+      li {
+        a {
+          color: white;
+          text-decoration: none;
+          margin: 35px;
+
+          &:hover {
+            color: #adb5bd;
+          }
         }
       }
     }
   }
-  
+}

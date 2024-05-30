@@ -4,20 +4,26 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 import Products from "./components/Products/Products";
 import { ProductProvider } from "./context/ProductContext/ProductState";
+import {UserProvider } from "./context/UserContext/UserState";
+import Login from "./components/Login/Login";
+import Profile from "./components/Profile/Profile";
+
 
 const App = () => {
     return (
-        <ProductProvider>
-            <Router>
-                <Header />
-                <Products />
-                <Routes>
-                    <Route path="/" element={<Footer />} />
-                </Routes>
-            </Router>
-            <Footer/>
-       
-        </ProductProvider>
+        <UserProvider>
+            <ProductProvider>
+                <Router>
+                    <Header />
+                    <Routes>
+                        <Route path="/Login" element={<Login />} />
+                        <Route path="/Profile" element={<Profile />} />
+                        <Route path="/Products" element={<Products/>} />
+                    </Routes>
+                </Router>
+                <Footer />
+            </ProductProvider>
+        </UserProvider>
 
     );
 };
