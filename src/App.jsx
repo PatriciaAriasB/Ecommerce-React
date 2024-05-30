@@ -10,6 +10,8 @@ import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 
 
+
+
 const App = () => {
     return (
         <UserProvider>
