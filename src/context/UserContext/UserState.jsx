@@ -52,6 +52,22 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const register = async (user) => {
+    try {
+        const res = await axios.post(API_URL + "/", user);
+        dispatch({
+            type: "REGISTER",
+            payload: res.data,
+        });
+
+        return res.data
+
+    } catch (error) {
+
+        console.error(error);
+    }
+}
+
   const logout = async()=>{
     try {
         const token = localStorage.getItem("token")
@@ -78,7 +94,8 @@ export const UserProvider = ({ children }) => {
         user: state.user,
         login,
         getLoggedUserInfo,
-        logout
+        logout,
+        register,
       }}
     >
       {children}

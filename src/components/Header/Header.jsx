@@ -63,14 +63,14 @@ const Header = () => {
                   <li>
                     <Link to="/profile">Perfil</Link>
                   </li>
-                  <button
+                  <li
                     onClick={() => {
                       logout();
                       navigate("/login");
                     }}
                   >
                     Cerrar sesión
-                  </button>
+                  </li>
                   <li></li>
 
                   <li>
