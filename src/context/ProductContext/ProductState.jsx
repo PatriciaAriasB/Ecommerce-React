@@ -40,6 +40,19 @@ export const ProductProvider = ({ children }) => {
     }
   }
 
+  const addCart = (product) => {
+    dispatch({
+      type: "ADD_CART",
+      payload: product,
+    });
+  };
+ 
+     const clearCart = () => {
+        dispatch({
+          type: "CLEAR_CART",
+        });
+      };
+    
 
   const deleteProduct = async (id) => {
     try {
@@ -61,10 +74,13 @@ export const ProductProvider = ({ children }) => {
         getProducts,
         deleteProduct,
         addProduct,
+        addCart,
+        clearCart,
       }}
     >
       {children}
     </ProductContext.Provider>
+
   );
 };
 

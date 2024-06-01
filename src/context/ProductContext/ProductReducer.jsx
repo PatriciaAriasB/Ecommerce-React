@@ -15,13 +15,21 @@ const products = (state, action) => {
         ...state,
         products: [action.payload, ...state.products],
       };
+      case "ADD_CART":
+        return {
+          ...state,
+          cart: [action.payload, ...state.cart],
+        };
+        case "CLEAR_CART":
+          return {
+            ...state,
+            cart: [],
+          };
+        default:
+          return state
+        }
+      };
       
-      default:
-        return state;
-    }
-    
-  };
-
         
     
       export default products;
