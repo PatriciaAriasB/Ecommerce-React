@@ -1,24 +1,24 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/UserContext/UserState";
-import { ProductContext } from "../../context/ProductContext/ProductState";
+ import { ProductContext } from "../../context/ProductContext/ProductState";
 import './Header.scss';
 import 'bootstrap/scss/bootstrap.scss';
+import { Badge } from "antd";
 
 //TODO: Descomentar cuando haga el carrito.
-// import {ShoppingCartOutlined} from "@ant-design/icons"
-// import { Badge } from "antd";
+ import {ShoppingCartOutlined} from "@ant-design/icons"
 
 //TODO: hacer componente logout y lógica, debe dirigirte a productos
 
 const Header = () => {
-  const { token, } = useContext(UserContext);
-  const { cart } = useContext(ProductContext)
+  const { token, logout } = useContext(UserContext);
+ const { cart } = useContext(ProductContext)
   const navigate = useNavigate();
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart))
-  }, [cart])
+//  useEffect(() => {
+//    localStorage.setItem("cart", JSON.stringify(cart))
+//  }, [cart])
 
   return (
     <header>
@@ -26,6 +26,7 @@ const Header = () => {
     <div className="container-fluid">
       <a className="navbar-brand" href="/">
         <img src="src/assets/LOGO.png" alt="Logo" className="navbar-logo" />
+
       </a>
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
@@ -53,30 +54,32 @@ const Header = () => {
             <li>
               <Link to="/profile">Perfil</Link>
             </li>
+            <button
+              onClick={() => {
+                logout();
+                navigate("/login");
+              }}
+            >
+              Cerrar sesión
+            </button>
             <li>
-              <button
-                onClick={() => {
-                  //logout();
-                  navigate("/login");
-                }}
-              >
-                Cerrar sesión
-              </button>
             </li>
+          
+            <li>
+              <Link to="/cart"> Carrito <Badge count={cart.length} size="small"><ShoppingCartOutlined /></Badge> /</Link>
+            </li> 
+          </>
+        ) : (
+          <>
             <li>
               <Link to="/login">Iniciar sesión</Link>
             </li>
             <li>
               <Link to="/register">Registrarse</Link>
             </li>
-            {/* <li>
-              <Link to="/Cart"> Carrito <Badge count={cart.length} size="small"><ShoppingCartOutlined /></Badge> /</Link>
-            </li> */}
-          </>
-        ) : (
-          <>
           </>
         )}
+           
 
       </ul>
     </div>

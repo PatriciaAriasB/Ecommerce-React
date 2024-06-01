@@ -10,7 +10,7 @@ const Product = () => {
 
   useEffect(() => {
     getProducts();
-  }, [getProducts]);
+  }, []);
 
   const productItems = products.map((product) => (
     <div className="product-card" key={product._id}>

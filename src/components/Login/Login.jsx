@@ -10,12 +10,22 @@ const Login = () => {
   const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
   const navigate = useNavigate();
-  const onFinish = (values) => {
-    login(values);
-    navigate("/profile");
-    notification.success({
-      message: 'Hola'
-    });
+  const onFinish = async(values) => {
+    try {
+      const res = await login(values);
+      if(res.data){
+        navigate("/profile");
+        notification.success({
+          message: '¡Hola! Nos alegramos de verte'
+        });
+    }  }
+    catch (error) {
+      notification.error({
+        message: 'Email o contraseña incorrectos'
+      });
+    }
+    
+  
   };
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);

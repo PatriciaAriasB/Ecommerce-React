@@ -29,6 +29,7 @@ export const UserProvider = ({ children }) => {
       if (res.data) {
         localStorage.setItem("token", res.data.token);
       }
+      return res
     } catch (error) {
       console.error(error);
     }

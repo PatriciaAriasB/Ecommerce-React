@@ -5,8 +5,10 @@ import ProductReducer from './ProductReducer';
 
 const API_URL = 'http://localhost:3001/products';
 
+const cart = JSON.parse(localStorage.getItem("cart"))||[]
 const initialState = {
   products: [],
+  cart:cart
 };
 
 export const ProductContext = createContext(initialState);
@@ -55,6 +57,7 @@ export const ProductProvider = ({ children }) => {
     <ProductContext.Provider
       value={{
         products: state.products,
+        cart: state.cart,
         getProducts,
         deleteProduct,
         addProduct,

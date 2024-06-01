@@ -15,9 +15,11 @@ const products = (state, action) => {
         ...state,
         products: [action.payload, ...state.products],
       };
+      
       default:
         return state;
     }
+    
   };
 
         
