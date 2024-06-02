@@ -15,9 +15,11 @@ const Cart = () => {
 
   const handleOrder = () => {
     orderService.createOrder(cart);
-    clearCart();
     setOrderSuccess(true);
-    setTimeout(() => setOrderSuccess(false), 3000); 
+    setTimeout(() => {
+      setOrderSuccess(false);
+      clearCart();
+    }, 3000); 
   };
 
   if (cart.length === 0) {
@@ -38,8 +40,7 @@ const Cart = () => {
         <button onClick={handleOrder}>Realizar pedido</button>
       </div>
       {cart.map((product) => (
-        <div key={product._id}>
-          
+        <div key={product.id}>
           <h2>{product.name}</h2>
           <p>{product.price}€</p>
         </div>

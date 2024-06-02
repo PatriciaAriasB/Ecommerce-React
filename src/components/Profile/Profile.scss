@@ -2,3 +2,26 @@
     margin-top: 200px;
 }
 
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+    flex-direction: column;
+  }
+  
+  .user-card,
+  .orders-section {
+    width: 100%;
+    max-width: 400px;
+    margin: 10px;
+  }
+  
+  .orders-section {
+    text-align: center;
+  }
+  
+  .orders-container {
+    text-align: left;
+  }
+  

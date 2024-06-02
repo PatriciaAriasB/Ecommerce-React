@@ -11,6 +11,12 @@ const users = (state, action) => {
           ...state,
           user: action.payload,
         };
+        
+    case "GET_USER_ORDERS":
+      return {
+        ...state,
+        orders: action.payload,
+      };
 
         case "REGISTER":
           return {
