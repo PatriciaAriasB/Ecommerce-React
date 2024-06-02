@@ -10,9 +10,6 @@ import Profile from "./components/Profile/Profile";
 import Register from "./components/Register/Register";
 import Cart from "./components/Cart/Cart";
 
-
-
-
 const App = () => {
     return (
         <UserProvider>
@@ -20,6 +17,7 @@ const App = () => {
                 <Router>
                     <Header />
                     <Routes>
+                        <Route path="/" element={<Products />} />
                         <Route path="/register" element={<Register/>} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/profile" element={<Profile />} />

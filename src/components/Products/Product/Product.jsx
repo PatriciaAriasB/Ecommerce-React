@@ -4,11 +4,7 @@ import './Product.scss';
 import { Button } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 
-
 import Image1 from '../../../assets/AirMax90.png';
-
-
-
 
 const Product = () => {
   const { products, getProducts, addCart, cart } = useContext(ProductContext);

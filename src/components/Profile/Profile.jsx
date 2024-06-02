@@ -7,7 +7,7 @@ const Profile = () => {
   const { getLoggedUserInfo, user, token } = useContext(UserContext);
 
   useEffect(() => {
-    getLoggedUserInfo();
+    getLoggedUserInfo(); 
     console.log(user)
   }, [token]);
 
@@ -17,7 +17,6 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      
       <p>{user.name}</p>
       <p>{user.email}</p>
     </div>

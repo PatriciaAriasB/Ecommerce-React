@@ -17,7 +17,7 @@ const Cart = () => {
     orderService.createOrder(cart);
     clearCart();
     setOrderSuccess(true);
-    setTimeout(() => setOrderSuccess(false), 3000); // Ocultar el mensaje después de 3 segundos
+    setTimeout(() => setOrderSuccess(false), 3000); 
   };
 
   if (cart.length === 0) {

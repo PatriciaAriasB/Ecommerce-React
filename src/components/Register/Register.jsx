@@ -2,14 +2,18 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext/UserState';
 import { Button, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import { notification } from "antd";
 import './Register.scss'; 
 
 const Register = () => {
   const { register } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const onFinish = (values) => {
-    register(values);
+  const onFinish = async (values) => {
+    await register(values);
+    notification.success({
+      message: 'Usuario registrado con éxito'
+    });
     navigate("/login"); 
   };
 
